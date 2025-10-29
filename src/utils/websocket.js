@@ -91,9 +91,9 @@ function leaveRoom(ws, roomId, rooms) {
     rooms[roomId].delete(ws);
 
     const remainingPeers = rooms[roomId].size;
-    const roles = Array.from(rooms[roomId]).map(
-      (client) => client.peerId || "unknown"
-    );
+    const roles = Array.from(rooms[roomId]).map((client) => {
+      return client.peerId || "unknown";
+    });
 
     console.log(
       `Client ${ws.peerId} left room: ${roomId}. Remaining peers: ${remainingPeers}`
