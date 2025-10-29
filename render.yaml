@@ -1,0 +1,5 @@
+buildCommand: "npm install"
+startCommand: "node src/server.js"
+env:
+  NODE_ENV: "production"
+  PORT: "3000"
