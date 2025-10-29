@@ -21,9 +21,10 @@ function joinRoom(ws, roomId, rooms) {
   ws.roomId = roomId;
 
   const peerCount = rooms[roomId].size;
-  const roles = Array.from(rooms[roomId]).map(
-    (client) => client.peerId || "unknown"
-  );
+  const roles = Array.from(rooms[roomId]).map((client) => ({
+    peerId: client.peerId || "unknown",
+    role: client.role || "unknown",
+  }));
 
   console.log(
     `Client ${ws.peerId} joined room: ${roomId}. Total peers: ${peerCount}`

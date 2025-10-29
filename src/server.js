@@ -29,7 +29,10 @@ wss.on("connection", (ws) => {
 
       switch (data.type) {
         case "join":
-          joinRoom(ws, data.room, rooms);
+          if (data.room) {
+            // Pass the role from the client message
+            joinRoom(ws, data.room, rooms, data.role);
+          }
           break;
         case "leave":
           leaveRoom(ws, data.room, rooms);
